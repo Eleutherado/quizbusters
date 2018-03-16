@@ -1,3 +1,6 @@
+const START_QUIZ_TIME = 193000;
+const JUMP_TO_QUIZ_TIME = 200000;
+
 // 2. This code loads the IFrame Player API code asynchronously.
 var tag = document.createElement('script');
 
@@ -18,23 +21,26 @@ function onYouTubeIframeAPIReady() {
       onStateChange: onPlayerStateChange
     }
   });
+  //document.getElementById('player').style['z-index'] = -10;
+  //document.getElementById('player').style['-webkit-transform'] =
+  //  'translateZ(0)';
 }
 
 // 4. The API will call this function when the video player is ready.
 function onPlayerReady(event) {
   event.target.playVideo();
+  setInterval(checkStartQuiz, 1000); // check to start quiz every second
+}
+
+function checkStartQuiz() {
+  if (player.getCurrentTime() >= START_QUIZ_TIME) {
+    player.pauseVideo();
+    //TODO Start Quiz.
+  }
 }
 
 // 5. The API calls this function when the player's state changes.
 //    The function indicates that when playing a video (state=1),
 //    the player should play for six seconds and then stop.
-var done = false;
-function onPlayerStateChange(event) {
-  if (event.data == YT.PlayerState.PLAYING && !done) {
-    setTimeout(stopVideo, 6000);
-    done = true;
-  }
-}
-function stopVideo() {
-  player.stopVideo();
-}
+
+function onPlayerStateChange(event) {}

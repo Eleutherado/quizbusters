@@ -1,7 +1,8 @@
 {
   "name": "quizbusters",
   "version": "1.0.0",
-  "description": "A simple prototype for embedded interactive quizes in educational videos",
+  "description":
+    "A simple prototype for embedded interactive quizes in educational videos",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",

@@ -1,4 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-ReactDOM.render(<h1>Hi React!</h1>, document.getElementById('reactive'));
+const Greeting = () => <h1 className="greeter">Hi ALL! :D </h1>;
+
+ReactDOM.render(<Greeting />, document.getElementById('reactive'));

@@ -1,0 +1,101 @@
+@import url('https://fonts.googleapis.com/css?family=Raleway:300,700|Sacramento');
+
+html {
+  background-color: #ffe819;
+  font-size: 16px;
+  font-family: 'Raleway', sans-serif;
+}
+
+body {
+  padding: 3em;
+}
+nav {
+  font-weight: 300;
+}
+
+li {
+  position: relative;
+  display: inline-block;
+  text-decoration: none;
+}
+
+li:last-of-type {
+  float: right;
+}
+
+.title {
+  font-family: 'Sacramento', cursive;
+  text-align: center;
+  font-size: 3rem;
+  line-height: 1.6em;
+  padding: 2rem;
+}
+
+a {
+  text-decoration: none;
+}
+a:hover {
+  color: orangered;
+  transition: 0.3s ease;
+}
+
+.quizPlayer {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+#player {
+  align-self: center;
+}
+
+/*********************slides******************/
+.greeter {
+  color: white;
+  font-weight: 700;
+  font-size: 2em;
+}
+.slide {
+  display: block;
+  width: 60vw;
+  /*    height: 30vw;*/
+  padding: 2em;
+  margin: 5em;
+  background: white;
+}
+.slide > * {
+  line-height: 2em;
+  margin-bottom: 2em;
+}
+.hint {
+  font-size: 0.8em;
+  color: gray;
+}
+h3 {
+  font-weight: 700;
+}
+form {
+}
+
+button {
+  display: inline-block;
+  margin-right: 1em;
+  padding: 1em;
+  border: blue 0.1em solid;
+  color: blue;
+  padding: 0.5em;
+  text-align: center;
+  cursor: pointer;
+  font-family: 'Railway';
+  font-size: 1.3em;
+}
+button:hover {
+  box-shadow: 5px 5px gray;
+}
+
+/*media queries*/
+@media screen and (max-width: 550px) {
+  html {
+    font-size: 13px;
+  }
+}
