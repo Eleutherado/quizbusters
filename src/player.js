@@ -1,10 +1,65 @@
+import React from 'react';
+import YouTube from 'react-youtube';
+
+const START_QUIZ_TIME = 10; //seconds
+const JUMP_TO_TIME_WHEN_CORRECT = 200; // seconds
+
+export default class Player extends React.Component {
+  constructor() {
+    super();
+    this.state = {
+      currentTime: 0
+    };
+  }
+
+  render() {
+    const opts = {
+      height: '390',
+      width: '640',
+      playerVars: {
+        // https://developers.google.com/youtube/player_parameters
+      }
+    };
+
+    return (
+      <YouTube
+        videoId="2g811Eo7K8U"
+        opts={opts}
+        onReady={this._onReady.bind(this)}
+        onPlay={this._onPlay.bind(this)}
+      />
+    );
+  }
+  _onReady(event) {
+    // access to player in all event handlers via event.target
+    event.target.pauseVideo();
+    console.log('ready');
+  }
+
+  _onPlay(event) {
+    setInterval(() => this.checkStartQuiz(event), 1000); // check to start quiz every second
+  }
+
+  checkStartQuiz(event) {
+    this.updateTime();
+    console.log(this.state.currentTime);
+    if (this.state.currentTime >= START_QUIZ_TIME) {
+      event.target.pauseVideo();
+      //TODO Start Quiz.
+    }
+  }
+  updateTime() {
+    this.setState(prevState => ({
+      currentTime: prevState.currentTime + 1
+    }));
+  }
+
+  startQuiz() {}
+}
 /*
 const START_QUIZ_TIME = 193; //seconds
 const JUMP_TO_TIME_WHEN_CORRECT = 200; // seconds
 
-var quizState = function quizStart() {
-  quizState = 'Started';
-};
 // 2. This code loads the IFrame Player API code asynchronously.
 var tag = document.createElement('script');
 
@@ -51,6 +106,5 @@ function onPlayerStateChange(event) {}
 
 function startQuiz() {
   player.pauseVideo();
-
 }
 */
