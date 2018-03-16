@@ -1,0 +1,33 @@
+{
+  "name": "quizbusters",
+  "version": "1.0.0",
+  "description": "A simple prototype for embedded interactive quizes in educational videos",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Eleutherado/quizbusters.git"
+  },
+  "author": "Emilio Vargas and Ye Jin Lee",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Eleutherado/quizbusters/issues"
+  },
+  "homepage": "https://github.com/Eleutherado/quizbusters#readme",
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.4",
+    "babel-preset-env": "^1.6.1",
+    "babel-preset-react": "^6.24.1",
+    "webpack": "^4.1.1",
+    "webpack-cli": "^2.0.12"
+  },
+  "dependencies": {
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0"
+  }
+}
