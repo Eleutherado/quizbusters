@@ -39,46 +39,67 @@ a:hover {
   transition: 0.3s ease;
 }
 
-.quizPlayer {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-}
-
-#player {
-  align-self: center;
+img {
+  width: 40%;
 }
 
 /*********************slides******************/
-.greeter {
-  color: white;
-  font-weight: 700;
-  font-size: 2em;
-}
 .slide {
+  position: absolute;
+  top: 30%;
+  left: 12vw;
   display: block;
-  width: 60vw;
-  /*    height: 30vw;*/
-  padding: 2em;
-  margin: 5em;
+  width: 70vw;
+  height: 40vw;
+  padding: 3vw;
+  margin-bottom: 5em;
   background: white;
 }
+/****slide z index*****/
+
+#player {
+  z-index: 0;
+}
+.a-1 {
+  z-index: 10;
+}
+.a-2 {
+  z-index: 2;
+}
+.a-3 {
+  z-index: 3;
+}
+.a-4 {
+  z-index: 4;
+}
+.a-5 {
+  z-index: 5;
+}
+
 .slide > * {
   line-height: 2em;
   margin-bottom: 2em;
 }
 .hint {
-  font-size: 0.8em;
   color: gray;
+  margin-bottom: 0.5em;
 }
 h3 {
   font-weight: 700;
 }
 form {
 }
+.red {
+  color: red;
+  line-height: 1.3em;
+  text-indent: 38px;
+}
 
+#last,
+input,
 button {
   display: inline-block;
+  margin-top: 1em;
   margin-right: 1em;
   padding: 1em;
   border: blue 0.1em solid;
@@ -89,13 +110,71 @@ button {
   font-family: 'Railway';
   font-size: 1.3em;
 }
+.btn:hover,
 button:hover {
   box-shadow: 5px 5px gray;
+}
+
+#last:hover {
+  box-shadow: none;
+  color: white;
+  background: blue;
+}
+
+#last {
+  margin: 0;
+}
+
+/*media queries*/
+@media screen and (max-width: 1125px) {
+  html {
+    /*        font-size: 13px;*/
+  }
+
+  .slide {
+    height: 80vw;
+  }
+
+  img {
+    width: 80%;
+    margin: 7vw;
+  }
+
+  .slide > * {
+    margin-bottom: 0;
+  }
+
+  #last,
+  input,
+  button {
+    font-size: 0.9rem;
+    margin-top: 1em;
+    margin-bottom: 0;
+  }
 }
 
 /*media queries*/
 @media screen and (max-width: 550px) {
   html {
     font-size: 13px;
+  }
+
+  .slide {
+    height: 110vw;
+  }
+  .red {
+    text-indent: 0;
+  }
+
+  .slide > * {
+    margin-bottom: 1em;
+  }
+
+  #last,
+  input,
+  button {
+    display: block;
+    margin-top: 0.5em;
+    margin-bottom: 0;
   }
 }

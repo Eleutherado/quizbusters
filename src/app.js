@@ -4,22 +4,51 @@
 */
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Greeting from './quiz';
-import Player from './player';
+import QuizSlide from './quiz';
+import Player from './altPlayer';
 
-var globalState = {
-  quiz: 'unstarted'
-};
+const QUIZ_STATUSES = [
+  'unstarted',
+  'started',
+  'correct',
+  'incorrect1',
+  'incorrect2',
+  'incorrect3',
+  'hint1',
+  'hint2',
+  'hint3',
+  'doneSolved',
+  'doneUnsolved'
+];
 
-function quizStart() {
-  globalState.quiz = 'started';
+class App extends React.Component {
+  constructor() {
+    super();
+    this.state = {
+      quizStatus: QUIZ_STATUSES[0],
+      possibleStatuses: QUIZ_STATUSES
+    };
+  }
+
+  render() {
+    return (
+      <div>
+        <div>
+          <Player onQuizStart={() => this.handleQuizStatus(1)} />
+        </div>
+        <QuizSlide
+          quizStatus={this.state.quizStatus}
+          possibleStatuses={this.state.possibleStatuses}
+        />
+      </div>
+    );
+  }
+
+  handleQuizStatus(status) {
+    console.log('called with ' + status);
+    this.setState({ quizStatus: QUIZ_STATUSES[status] });
+    console.log('status: ' + this.state.quizStatus);
+  }
 }
-
-const App = () => (
-  <div>
-    <Player />
-    <Greeting />
-  </div>
-);
 
 ReactDOM.render(<App />, document.getElementById('player'));
